@@ -2,17 +2,17 @@ class Post < ApplicationRecord
   validates :title, presence: true
   validates :content, length: { minimum: 250 }
   validates :summary, length: { maximum: 250 }
-  validates :category, inclusion: { in: %w(Fiction Non-fiction),message: "%{value} is not a valid size" }
-
-
+  validates :category, inclusion: { in: %w(Fiction Non-Fiction) }
+ validates :title, exclusion: { in: ['True Facts']}
 end
+
 # class Post < ApplicationRecord
 #     validate :clickbait?
 #     validates :title, presence: true
 #     validates :content, length: {minimum: 250}
 #     validates :summary, length: {maximum: 250}
 #     validates :category, inclusion: { in: %w(Fiction Non-Fiction)}
-    
+
 #     CLICKBAIT_PHRASES = [
 #         /Won't Believe/i,
 #         /Secret/i,
